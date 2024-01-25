@@ -199,15 +199,21 @@ router.post("/magic-link", async (req, res) => {
     expiresIn: "10m",
   }); // Set expiration time
 
+  const user = await User.findOne({ keyEmail: ipEmail });
+
+  console.log(user);
+  if (!user) {
+    const newUser = new User({
+      keyAppUserId: fnGenerateAppId("appUser", 16), // tapUser + 16 random characters
+      keyUsername: ipEmail,
+      keyEmail: ipEmail,
+    });
+  
+    await newUser.save();
+  }
+
   // Send the magic link to the user's email
   sendMagicLinkEmail(ipEmail, token);
-  const newUser = new User({
-    keyAppUserId: fnGenerateAppId("appUser", 16), // tapUser + 16 random characters
-    keyUsername: ipEmail,
-    keyEmail: ipEmail,
-  });
-
-  await newUser.save();
 
   res.json({ message: "Magic link sent successfully", token, email: ipEmail });
 });
