@@ -10,5 +10,5 @@
 
 ## Deployment
 
-[Live]() |
-[Alternate]()
+[Live](https://projectz-be.vercel.app/) |
+[Alternate](https://projectz-be.vercel.app/)
