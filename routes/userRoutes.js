@@ -43,7 +43,7 @@ router.post("/register", async (req, res) => {
       // Right - keys are from the request body
 
       const newUser = new User({
-        keyAppUserId: fnGenerateAppId("appUser", 16), // tapUser + 16 random characters
+        keyAppUserId: fnGenerateAppId("countedinUser", 16), // user + 16 random characters
         keyUsername: ipEmail,
         keyEmail: ipEmail,
         keyPassword: hashedPassword,
@@ -208,7 +208,7 @@ router.post("/magic-link", async (req, res) => {
       keyUsername: ipEmail,
       keyEmail: ipEmail,
     });
-  
+
     await newUser.save();
   }
 

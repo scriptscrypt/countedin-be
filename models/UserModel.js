@@ -50,6 +50,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "student",
   },
+  keyPin:{
+    type: Number,
+    default: "",
+  },
   keyCreatedAt:{
     type: Date,
     default : Date.now(),

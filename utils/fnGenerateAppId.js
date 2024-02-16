@@ -1,4 +1,4 @@
-const generateRandomAlphanumeric = (prefix, length) => {
+const fnGenerateAppId = (prefix, length) => {
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
@@ -7,6 +7,6 @@ const generateRandomAlphanumeric = (prefix, length) => {
     result += characters.charAt(randomIndex);
   }
   return `${prefix}${result}`;
-}
+};
 
-module.exports = generateRandomAlphanumeric;
+module.exports = fnGenerateAppId;
