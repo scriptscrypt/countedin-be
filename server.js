@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const securityRoutes = require("./routes/appSecurityInfoRoutes");
 const eventRoutes = require("./routes/eventRoutes");
+const qrRoutes = require("./routes/qrRoutes");
 const bodyParser = require("body-parser");
 const cors = require("cors"); 
 require("dotenv").config();
@@ -45,6 +46,7 @@ app.use("/auth", userRoutes);
 app.use("/profile", profileRoutes);
 app.use("/security", securityRoutes);
 app.use("/event", eventRoutes);
+app.use("/qr", qrRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
