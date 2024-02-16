@@ -6,6 +6,7 @@ const connectDB = require("./config/dbconfig");
 const userRoutes = require("./routes/userRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const securityRoutes = require("./routes/appSecurityInfoRoutes");
+const eventRoutes = require("./routes/eventRoutes");
 const bodyParser = require("body-parser");
 const cors = require("cors"); 
 require("dotenv").config();
@@ -43,6 +44,7 @@ app.use(passport.initialize());
 app.use("/auth", userRoutes);
 app.use("/profile", profileRoutes);
 app.use("/security", securityRoutes);
+app.use("/event", eventRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
