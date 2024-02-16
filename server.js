@@ -5,8 +5,9 @@ const PORT = 3000;
 const connectDB = require("./config/dbconfig");
 const userRoutes = require("./routes/userRoutes");
 const profileRoutes = require("./routes/profileRoutes");
+const pinRoutes = require("./routes/appPinActionsRoutes");
 const bodyParser = require("body-parser");
-const cors = require("cors"); // Import the cors middleware
+const cors = require("cors"); 
 require("dotenv").config();
 // Connect to the MongoDB database
 connectDB();
@@ -41,6 +42,7 @@ app.use(passport.initialize());
 // Include the user routes
 app.use("/auth", userRoutes);
 app.use("/profile", profileRoutes);
+app.use("/pin", pinRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
